@@ -5,6 +5,8 @@
     <title>Title</title>
 </head>
 <body>
-    {{ custom_date }}
+    {% for book in book_list %}
+    <a href="{% url 'book_detail' book.pk %}">{{ book.title }}</a>
+    {% endfor %}
 </body>
 </html>

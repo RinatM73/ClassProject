@@ -6,7 +6,7 @@
 </head>
 <body>
     {% for article in article_list %}
-    <a href="">{{ article.title }}</a>
+    <a href="{% url 'article_detail' article.pk %}">{{ article.title }}</a>
     {% endfor %}
 </body>
 </html>
