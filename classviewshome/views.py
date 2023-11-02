@@ -1,6 +1,10 @@
+from django.contrib.auth import login
+from django.contrib.auth.models import User
 from django.shortcuts import render
+from django.urls import reverse_lazy
+from django.views import View
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
-from .forms import ArticleForm, BookForm
+from .forms import ArticleForm, BookForm, CustomUserCreationForm
 from .models import *
 class HomeView(TemplateView):
     template_name = 'classviewshome/home.html'
@@ -50,3 +54,20 @@ class BookDeleteView(DeleteView):
     model = Book
     form_class = BookForm
     success_url = '/books/'
+
+class UserCreateView(CreateView):
+    model = User
+    form_class = CustomUserCreationForm
+    success_url = reverse_lazy('home')
+    template_name = 'classviewshome/register.html'
+
+    def form_valid(self, form):
+        user = form.save(commit=False)
+        user.full_name = form.cleaned_data['full_name']
+        user.birth_date = form.cleaned_data['birth_date']
+        user.save()
+        login(self.request, user)
+        return super().form_valid(form)
+
+
+class LogoutView(View):
