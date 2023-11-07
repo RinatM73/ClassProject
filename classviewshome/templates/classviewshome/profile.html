@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Профиль</title>
+</head>
+<body>
+    <h1>Профиль пользователя</h1>
+    <p>Добро пожаловать {{ user.username }}</p>
+    <p>Имя {{ user.full_name }}</p>
+    <p>Дата рождения {{ user.birth_date }}</p>
+    <a href="{% url 'logout' %}">Выход</a>
+
+</body>
+</html>

@@ -2,14 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Новая статья</title>
+    <title>Title</title>
 </head>
 <body>
-<form action="" method="POST">
-{% csrf_token %}
-{{ form.as_p }}
-
-<button type="submit">Создать статью</button>
+    <form action="" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Добавить статью</button>
   </form>
 </body>
 </html>
