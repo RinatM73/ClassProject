@@ -18,7 +18,23 @@
                 </ul>
             </div>
             <div class="col-4">
-
+                <ul class="nav w-100 nav-underline">
+                    {% if request.user.username %}
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="{% url 'profile' %}">Профиль</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="{% url 'logout' %}">Выход</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="{% url 'register' %}">Регистрация</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="{% url 'login' %}">Вход</a>
+                        </li>
+                    {% endif %}
+                </ul>
             </div>
         </div>
     </div>

@@ -4,6 +4,8 @@ from django.contrib.auth.models import AbstractUser
 class CustomUser(AbstractUser):
     full_name = models.CharField(max_length=250, verbose_name="ФИО", blank=True, null=True)
     birth_date = models.DateField(verbose_name="Дата рождения", blank=True, null=True)
+    image_profile = models.ImageField(upload_to='profile/image/', verbose_name='Фото профиля')
+    about_me = models.TextField(verbose_name='О себе', blank=True)
 
 class Article(models.Model):
     title = models.CharField(max_length=100, verbose_name="Заголовок")

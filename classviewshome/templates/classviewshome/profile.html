@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Профиль</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block content %}
     <h1>Профиль пользователя</h1>
+    <img alt="" class="image" src="{{ user.image_profile.url }}">
     <p>Добро пожаловать {{ user.username }}</p>
-    <p>Имя {{ user.full_name }}</p>
-    <p>Дата рождения {{ user.birth_date }}</p>
+    <p>Имя: {{ user.full_name }}</p>
+    <p>Дата рождения: {{ user.birth_date }}</p>
+    <p>О себе: {{ user.about_me }}</p>
     <a href="{% url 'logout' %}">Выход</a>
-
-</body>
-</html>
+{% endblock content %}

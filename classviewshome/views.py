@@ -80,6 +80,7 @@ class UserCreateView(CreateView):
         login(self.request, user)
         return super().form_valid(form)
 
+
 class ProfileView(LoginRequiredMixin, TemplateView):
     template_name = 'classviewshome/profile.html'
 

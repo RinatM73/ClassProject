@@ -9,7 +9,7 @@
               <div class="card-body">
                 <h5 class="card-title">{{ article.title }}</h5>
                   <img class="w-75" src="https://freepngimg.com/thumb/writing/168580-writing-free-hd-image.png" alt="">
-                <p class="card-text">{{ article.text }}</p>
+                <p class="card-text">{{ article.text|truncatechars:100 }}</p>
                 <a href="{% url 'article_detail' article.pk %}" class="btn btn-primary">Подробнее</a>
               </div>
             </div>
