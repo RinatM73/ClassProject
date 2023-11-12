@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Article_detail</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block content %}
 <h2>{{ article.title }}</h2>
 <p>{{ article.text}}</p>
 <a href="{% url 'update_article' article.pk %}">Редактировать</a>
 <a href="{% url 'delete_article' article.pk %}">Удалить</a>
-</body>
-</html>
+{% endblock content %}

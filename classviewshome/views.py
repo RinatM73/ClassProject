@@ -42,9 +42,9 @@ class ArticleUpdateView(UpdateView):
     model = Article
     form_class = ArticleForm
     success_url = '/articles/'
+
 class ArticleDeleteView(DeleteView):
     model = Article
-    form_class = ArticleForm
     success_url = '/articles/'
 
 class BookListView(ListView):
@@ -64,7 +64,6 @@ class BookUpdateView(UpdateView):
     success_url = '/books/'
 class BookDeleteView(DeleteView):
     model = Book
-    form_class = BookForm
     success_url = '/books/'
 
 class UserCreateView(CreateView):
