@@ -6,5 +6,5 @@
     <p>Имя: {{ user.full_name }}</p>
     <p>Дата рождения: {{ user.birth_date }}</p>
     <p>О себе: {{ user.about_me }}</p>
-    <a href="{% url 'logout' %}">Выход</a>
+    <a type="button" class="btn btn-dark" href="{% url 'logout' %}">Выход</a>
 {% endblock content %}

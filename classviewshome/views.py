@@ -1,14 +1,13 @@
 from django.contrib.auth import login
+from django.contrib.auth.models import User
+from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.models import User
-from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.utils.decorators import method_decorator
-from django.views import View
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
-from .forms import ArticleForm, BookForm, CustomUserCreationForm
 from .models import *
+from .forms import ArticleForm, BookForm, CustomUserCreationForm
+
 class HomeView(TemplateView):
     template_name = 'classviewshome/home.html'
 
@@ -67,7 +66,7 @@ class BookDeleteView(DeleteView):
     success_url = '/books/'
 
 class UserCreateView(CreateView):
-    model = User
+    model = CustomUser
     form_class = CustomUserCreationForm
     success_url = reverse_lazy('home')
     template_name = 'classviewshome/register.html'
@@ -79,6 +78,20 @@ class UserCreateView(CreateView):
         user.save()
         login(self.request, user)
         return super().form_valid(form)
+
+"""
+ class ProfileView(TemplateView):
+    template_name = 'classviewshome/profile.html'
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['user'] = self.request.user
+        return context
+"""
 
 
 class ProfileView(LoginRequiredMixin, TemplateView):

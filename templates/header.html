@@ -1,13 +1,15 @@
-<header>
+<header class="mb-5 py-3 border-bottom border-dark">
     <div class="container">
-        <div class="row d-flex justify-content-between">
-            <div class="col-1">
-                <img class="w-75" src="https://www.pngarts.com/files/3/Bear-PNG-Image-with-Transparent-Background.png" alt="">
+        <div class="row d-flex justify-content-between align-items-center">
+            <div class="col-4 d-flex">
+                <a href="{% url 'home' %}" class="col-1">
+                    <img class="w-100" src="https://kredit-on.ru/wp-content/uploads/5/7/8/5785fef64e4b49ef7f1d6ae9fe80791a.jpeg" alt="">
+                </a>
             </div>
-            <div class="col-6">
-                <ul class="nav w-100 nav-underline">
+            <div class="col-4">
+                <ul class="nav w-100 fs-6 d-flex justify-content-center">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Главная</a>
+                    <a class="nav-link text-dark" aria-current="page"  href="{% url 'home' %}">Главная</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link text-dark" href="{% url 'article_list' %}">Статьи</a>
@@ -17,24 +19,17 @@
                   </li>
                 </ul>
             </div>
-            <div class="col-4">
-                <ul class="nav w-100 nav-underline">
-                    {% if request.user.username %}
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="{% url 'profile' %}">Профиль</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="{% url 'logout' %}">Выход</a>
-                        </li>
-                    {% else %}
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="{% url 'register' %}">Регистрация</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="{% url 'login' %}">Вход</a>
-                        </li>
+            <div class="col-2 d-flex justify-content-end align-items-center">
+                {% if user.is_authenticated == False %}
+                    <a class="h-75 btn btn-success ms-2" type="button" href="{% url 'register' %}">Регистрация</a>
+                    <a class="btn btn-outline-dark ms-2" href="{% url 'login' %}">Вход</a>
+                {% else %}
+                    {% if user.is_staff %}
+                        <a class="h-75 btn btn-danger ms-2" type="button" href="{% url 'admin:index' %}">Админка</a>
                     {% endif %}
-                </ul>
+                    <a class="btn btn-success ms-2" type="button" href="{% url 'profile' %}">Профиль</a>
+                    <a class="btn btn-outline-dark ms-2" href="{% url 'logout' %}">Выход</a>
+                {% endif %}
             </div>
         </div>
     </div>
