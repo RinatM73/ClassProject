@@ -1,4 +1,6 @@
+
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
 <section class="hero vh-100">
     <div class="container d-flex align-items-center h-75">
@@ -9,16 +11,38 @@
         </div>
     </div>
 </section>
-<section>
-    <div class="container_1">
-        <div class="">
+<section class="vh-100">
+    <div class="container_1 d-flex justify-content-center align-items-center h-75">
+        <div class="row col-5 d-flex justify-content-center">
             <h2 class="d-flex justify-content-center">Meet the team</h2>
-            <p class="col-5">As three friends scattered throughout Europe, we were looking for a way to discover books and share our own recommendations. Nothing cut the mustard, so we took the challenge on. We may not have deep pockets or lots of time, but we're willing to bet we can make up for it by working smart and taking pride in our work.</p>
-            <div>
-                <img src="" alt="">
-                <img src="" alt="">
-                <img src="" alt="">
+            <p class="pt-3">As three friends scattered throughout Europe, we were looking for a way to discover books and share our own recommendations. Nothing cut the mustard, so we took the challenge on. We may not have deep pockets or lots of time, but we're willing to bet we can make up for it by working smart and taking pride in our work.</p>
+            <div class="row d-flex justify-content-center pt-3">
+                <div class="col-4">
+                    <a href="" class="d-flex justify-content-center" ><img src="{% static 'home/image/Rectangle.png' %}" alt=""></a>
+                    <p class="d-flex justify-content-center mt-4">Yavor Punchev & Fuji</p>
+                    <small class="d-flex justify-content-center text-body-secondary">Sofia, Bulgaria</small>
+                </div>
+                <div class="col-4">
+                    <a href="" class="d-flex justify-content-center"><img src="{% static 'home/image/Rectangle (1).png' %}" alt=""></a>
+                    <p class="d-flex justify-content-center mt-4">Joe Alcorn</p>
+                    <small class="d-flex justify-content-center text-body-secondary">London, United Kingdom</small>
+                </div>
+                <div class="col-4">
+                    <a href="" class="d-flex justify-content-center"><img src="{% static 'home/image/Rectangle (2).png' %}" alt=""></a>
+                    <p class="d-flex justify-content-center mt-4">Aziz Firat</p>
+                    <small class="d-flex justify-content-center text-body-secondary">Oslo, Norway</small>
+                </div>
             </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container_2 d-flex justify-content-center align-items-center h-75">
+        <div class="row col-4 d-flex justify-content-center">
+            <h1 class="d-flex justify-content-center">Ready to join us?</h1>
+            <h6 class="d-flex justify-content-center pt-3">Oku is the companion app for your bookshelf.</h6>
+            <small class="d-flex justify-content-center text-body-secondary text-center">Become a member for free to track, rate & review your favourite books with a community of others.</small>
+            <button type="button" class=" col-6 btn btn-dark mt-4 py-3">Create a free account</button>
         </div>
     </div>
 </section>
