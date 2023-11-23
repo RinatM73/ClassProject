@@ -16,6 +16,11 @@ class HomeView(TemplateView):
         context['custom_date'] = 'Доп информация'
         return context
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['team_list'] = Team.objects.all()
+        return context
+
 # def homeView(request):
 #     return render(request, 'home/home.html', {'custom_date': Доп информация})
 # это было бы без класса

@@ -7,7 +7,7 @@ class CustomUser(AbstractUser):
     image_profile = models.ImageField(upload_to='profile/image/', verbose_name='Фото профиля')
     about_me = models.TextField(verbose_name='О себе', blank=True)
 
-class CustomTeam(models.Model):
+class Team(models.Model):
     first_name = models.CharField(max_length=250, verbose_name="Имя", blank=True, null=True)
     second_name = models.CharField(max_length=250, verbose_name="Фамилия", blank=True, null=True)
     image_profile1 = models.ImageField(upload_to='image', verbose_name='Фото профиля')

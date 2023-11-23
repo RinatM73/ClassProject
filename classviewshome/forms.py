@@ -23,8 +23,3 @@ class CustomUserCreationForm(UserCreationForm):
         model = CustomUser
         fields = ['full_name', 'birth_date', 'username', 'image_profile', 'about_me', 'password1', 'password2',]
 
-
-class CustomTeamCreationForm(UserCreationForm):
-        class Meta:
-            model = CustomTeam
-            fields = ['first_name', 'second_name', 'image_profile1', 'your_country', 'your_city']
