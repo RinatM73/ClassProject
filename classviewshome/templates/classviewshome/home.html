@@ -21,13 +21,15 @@
                 pride in our work.</p>
 
             <div class="row d-flex justify-content-center pt-3">
-                <div class="col-4">
-                    <a href="" class="d-flex justify-content-center" ><img src="{{ Team.image_profile1.url }}" alt=""></a>
+                {% for Team in team_list %}
+                <div class="col-4 mt-5">
+                    <a href="" class="d-flex justify-content-center" ><img src="{{ Team.image_profile1.url }}" alt="" width="124" height="124"></a>
                     <p class="d-flex justify-content-center mt-4">{{ Team.first_name }} {{ Team.second_name }}</p>
                     <small class="d-flex justify-content-center text-body-secondary">{{ Team.your_city }}, {{ Team.your_country }}</small>
                 </div>
-                </div>
+                {% endfor %}
             </div>
+
         </div>
     </div>
 </section>
@@ -41,25 +43,41 @@
         </div>
     </div>
 </section>
-<section class="container_3 d-flex justify-content-center align-items-center pt-5 mx-5">
+<section class="container_3 d-flex justify-content-center align-items-center pt-5 mx-5 mt-5 ">
     <div class="row d-flex justify-content-center">
         <h2 class="col-3 text-center">Unlock your personal statistics</h2>
         <a href="" class="col-11 d-flex justify-content-center"><img src="{% static 'home/image/Rectangleall.png' %}" alt=""></a>
     </div>
 </section>
 <section class="container_4 d-flex justify-content-center align-items-center pt-5 mx-5">
-    <div class=" row col-12 py-5">
+    <div class="row col-12">
         <div class="container_5 col-6">
             <div class="col-12 d-flex justify-content-center">
-                <h2 class=" text-center w-50">Create custom collections</h2>
+                <h2 class="text-center w-50 pt-5">Create custom collections</h2>
             </div>
             <a href="" class="col-12 d-flex justify-content-center"><img src="{% static 'home/image/Rectanglecomp.png' %}" alt=""></a>
         </div>
         <div class="container_5 col-6">
             <div class="col-12 d-flex justify-content-center px-3">
-                <h2 class=" text-center w-75">Read community reviews or leave one of your own</h2>
+                <h2 class=" text-center w-75 pt-5">Read community reviews or leave one of your own</h2>
             </div>
-            <a href="" class="col-12 d-flex justify-content-center"><img src="{% static 'home/image/Rectangleread.png' %}" alt=""></a>
+            <a href="" class="col-12 pt-2 d-flex justify-content-center"><img src="{% static 'home/image/Rectangleread.png' %}" alt=""></a>
+        </div>
+    </div>
+</section>
+<section class="container_6 d-flex justify-content-center align-items-center pt-5 mx-5">
+    <div class="row col-12">
+        <div class="row col-6 d-flex ">
+            <div class=" col-4 w-50">
+                <h1>You're in good company</h1>
+            </div>
+            <small class="d-flex justify-content-center text-body-secondary w-50">53% of our members have imported their historical data from Goodreads. It's time for a change. Don't loathe your reading list –– liberate it.</small>
+        </div>
+        <div class="col-6">
+            <div class="row">
+                <div><img src="{% static 'home/image/Framefem.png' %}" alt=""></div>
+                <div class="d-flex justify-content-end"><img src="{% static 'home/image/FrameJoe.png' %}" alt=""></div>
+            </div>
         </div>
     </div>
 </section>
